@@ -18,6 +18,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 docker info
 git clone https://github.com/muralibala/docker-compose-jenkins-nexus-sonar.git
+cd docker-compose-jenkins-nexus-sonar/
 docker-compose up
 curl http://localhost:8080
 

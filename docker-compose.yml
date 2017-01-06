@@ -27,6 +27,7 @@ services:
  
  sonarqube:
   image: sonarqube
+  restart: always
   ports:
    - "9000:9000"
   networks:
@@ -39,7 +40,9 @@ services:
    - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
    - SONARQUBE_JDBC_USERNAME=sonar
    - SONARQUBE_JDBC_PASSWORD=sonar
-   
+  volumes:
+    - "/opt/sonar/:/var/lib/sonar"
+
  sonardb:
   networks:
     - devnet

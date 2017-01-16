@@ -69,7 +69,5 @@ services:
     - /sys:/sys:ro
     - /var/lib/docker/:/var/lib/docker:ro
   publish=8484:8080
-  expose:
-    - 8484
   networks:
     - devnet

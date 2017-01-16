@@ -7,6 +7,7 @@ networks:
 services:
  nexus:
   image: sonatype/nexus
+  container_name: nexus
   ports:
     - "8081:8081"
   networks:
@@ -16,6 +17,7 @@ services:
 
  jenkins:
   image: jenkins
+  container_name: jenkins
   ports:
     - "8080:8080"
   networks:
@@ -27,6 +29,7 @@ services:
  
  sonarqube:
   image: sonarqube
+  container_name: sonarqube
   restart: always
   ports:
    - "9000:9000"
@@ -47,6 +50,7 @@ services:
   networks:
     - devnet
   image: postgres:9.6.1
+  container_name: postgres
   restart: always
   environment:
    - POSTGRES_USER=sonar

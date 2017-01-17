@@ -60,15 +60,3 @@ services:
     - "5432:5432"
   volumes:
     - "/opt/postgres:/var/lib/postgresql"
- 
- cadvisor:
-  image: google/cadvisor
-  volumes:
-    - "/:/rootfs:ro"
-    - "/var/run:/var/run:rw"
-    - "/sys:/sys:ro"
-    - "/var/lib/docker/:/var/lib/docker:ro"
-  ports:
-   - "8082:8080"
-  networks:
-    - devnet

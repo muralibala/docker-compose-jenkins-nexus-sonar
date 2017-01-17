@@ -23,6 +23,8 @@ services:
   networks:
     - devnet
   volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    - "/usr/local/bin/docker:/usr/bin/docker"
     - "$PWD/jenkins:/var/jenkins_home"
  
  sonarqube:
@@ -58,3 +60,15 @@ services:
     - "5432:5432"
   volumes:
     - "/opt/postgres:/var/lib/postgresql"
+
+ cadvisor:
+  image: google/cadvisor
+  volumes:
+    - "/:/rootfs:ro"
+    - "/var/run:/var/run:rw"
+    - "/sys:/sys:ro"
+    - "/var/lib/docker/:/var/lib/docker:ro"
+  ports:
+   - "8090:8080"
+  networks:
+    - devnet

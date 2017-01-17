@@ -23,9 +23,7 @@ services:
   networks:
     - devnet
   volumes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
-    - "/usr/local/bin/docker:/usr/bin/docker"
-    - "/opt/jenkins/:/var/lib/jenkins/"
+    - "$PWD/jenkins:/var/jenkins_home"
  
  sonarqube:
   image: sonarqube

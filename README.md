@@ -25,8 +25,9 @@ curl http://localhost:8080
 ```
 
 ###In case of failure, run a test each image individually.
-
+##Make sure to give jenkins user privileges to jenkins directory
 ```
-docker run -d -p 8080:8080 --name=jenkins-master jenkins
+sudo chown 1000 jenkins
+docker run -d -p 8080:8080 --name=jenkins-master jenkins -v $(pwd)/jenkins:/var/jenkins_home
 docker run -d -p 8081:8081 --name=nexus sonatype/nexus:oss
 ```
